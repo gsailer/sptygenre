@@ -5,9 +5,9 @@ from spotipy.oauth2 import SpotifyClientCredentials
 import os, sys
 
 # virtual envs for Creds
-os.environ["SPOTIPY_CLIENT_ID"] = 'Your App ClientID'
-os.environ["SPOTIPY_CLIENT_SECRET"] = 'Your Client Secret'
-os.environ["SPOTIPY_REDIRECT_URI"] = 'Your redirect uri for auth flow'
+os.environ["SPOTIPY_CLIENT_ID"] = '3dab3c84034247168f7021f1f1128754'
+os.environ["SPOTIPY_CLIENT_SECRET"] = '974f36bb74f84131a073ab5684399600'
+os.environ["SPOTIPY_REDIRECT_URI"] = 'http://localhost:5000/callback/'
 
 # check sysargs
 if len(sys.argv) != 2:
