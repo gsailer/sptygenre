@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if [ $# -ne 1 ];
+	then 
+	echo "Usage: analyzeGenres [spotify uri]"
+	exit 2
+fi
+
+uri=$1
+cd bin
+
+source .venv/bin/activate
+
+python fetchsptygenre.py $uri
+./quantizegenres
+python displayrank.py
