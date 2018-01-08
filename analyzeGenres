@@ -9,7 +9,7 @@ fi
 uri=$1
 cd bin
 
-source .venv/bin/activate
+#source .venv/bin/activate
 
 python fetchsptygenre.py $uri
 ./quantizegenres
