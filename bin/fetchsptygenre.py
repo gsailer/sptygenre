@@ -24,11 +24,18 @@ s = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 playlist = s.user_playlist(username, playlist_id)["tracks"]
 
 ids = []
-while playlist['next']:
+# check playlist size, because of spotify paging object
+if playlist['total'] < 100:
 	for i in range(0,len(playlist)):
 		id = playlist["items"][i]["track"]["artists"][0]["id"]
 		ids.append(id)
 	playlist = s.next(playlist)
+else:
+	while playlist['next']:
+		for i in range(0,len(playlist)):
+			id = playlist["items"][i]["track"]["artists"][0]["id"]
+			ids.append(id)
+		playlist = s.next(playlist)
 	
 names = []
 # only 50 artists max because api 
