@@ -1,4 +1,4 @@
-# SptyGenre
+# sptygenre
 Analyse spotify playlists for generes.
 The genres are displayed in a wordcloud plot.
 Code works but is still "alpha" so use with precaution.
