@@ -61,7 +61,7 @@ def quantize_genres(genres):
 
 # draws wordcloud from dict[string] = int
 def drawWordCloud(weighted_genres):
-	print "drawing wordcloud"
+	print("drawing wordcloud")
 	wordcloud = WordCloud(width=2400, height=1600, margin=2).generate_from_frequencies(weighted_genres)
 	plt.imshow(wordcloud, interpolation='bilinear')
 	plt.axis("off")
