@@ -25,7 +25,7 @@ def main():
 		print(e.msg)
 		sys.exit(1)
 	if not args.file == None:
-		write.cloud_to_file(args.file)
+		write.cloud_to_file(args.file, playlist_wordcloud)
 	else:
 		draw.draw_wordcloud_with_matplot(playlist_wordcloud)
 
