@@ -1,31 +1,33 @@
-import sys
+import argparse
 import sptygenre
 from sptygenre.auth import auth
 from sptygenre.fetch import fetch
-from sptygenre.ui import draw
+from sptygenre.ui import draw, write
 from sptygenre import exceptions
+import sys
 
 def main():
-	if len(sys.argv) != 3:
-		print("Usage: sptygenre [username] [playlist uri]")
-		print("Example: spotify:user:spotify:playlist:37i9dQZF1DXdPec7aLTmlC")
-		print("Version: {}".format(sptygenre.__version__))
-		sys.exit(2)
-	username = sys.argv[1]
-	uri = sys.argv[2]
-
+	parser = argparse.ArgumentParser(description='Analyse Spotify playlists for genres.', prog='sptygenre')
+	parser.add_argument('username', help='Your Spotify username')
+	parser.add_argument('uri', help='spotify playlist uri (Example: spotify:user:spotify:playlist:37i9dQZF1DXdPec7aLTmlC)')
+	parser.add_argument('-f', '--file', help='Path to write png')
+	parser.add_argument('--version', action='version', version="sptygenre {}".format(sptygenre.__version__))
+	args = parser.parse_args()
 	try:
-		s = auth.authorize(username)
+		s = auth.authorize(args.username)
 	except exceptions.TokenException as e:
 		print(e.msg)
 		sys.exit(1)
 	try:
-		fetcher = fetch.Fetcher(uri, s)
+		fetcher = fetch.Fetcher(args.uri, s)
 		playlist_wordcloud = fetcher.fetch_wordcloud()
 	except Exception as e:
 		print(e.msg)
 		sys.exit(1)
-	draw.draw_wordcloud_with_matplot(playlist_wordcloud)
+	if not args.file == None:
+		write.cloud_to_file(args.file)
+	else:
+		draw.draw_wordcloud_with_matplot(playlist_wordcloud)
 
 if __name__ == '__main__':
 	main()
