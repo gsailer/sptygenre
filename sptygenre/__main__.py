@@ -7,7 +7,7 @@ from sptygenre import exceptions
 
 def main():
 	if len(sys.argv) != 3:
-		print("Usage: sptygenre [playlist username uri]")
+		print("Usage: sptygenre [username] [playlist uri]")
 		print("Example: spotify:user:spotify:playlist:37i9dQZF1DXdPec7aLTmlC")
 		print("Version: {}".format(sptygenre.__version__))
 		sys.exit(2)
