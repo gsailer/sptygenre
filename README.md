@@ -1,14 +1,15 @@
 # sptygenre
 Analyse spotify playlists for genres.
 The genres are displayed in a wordcloud plot.
-Code works but is still "alpha" so use with precaution.
+Code works but is now "beta" so use with precaution.
+Please report bugs via Issues.
 
-For installation make sure python is installed and install dependencies by:
+For installation make sure python is installed and install with:
 ```
-pip install -r requirements.txt
+pip install sptygenre
 ```
 
 You can run
 ```
-./analyzeGenres [spotify playlist uri]
+sptygenre [username  spotify playlist uri]
 ```
