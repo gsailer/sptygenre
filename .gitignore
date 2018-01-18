@@ -1,29 +1,5 @@
 
-# Created by https://www.gitignore.io/api/python,haskell
-
-### Haskell ###
-dist
-dist-*
-cabal-dev
-*.o
-*.hi
-*.chi
-*.chs.h
-*.dyn_o
-*.dyn_hi
-.hpc
-.hsenv
-.cabal-sandbox/
-cabal.sandbox.config
-*.prof
-*.aux
-*.hp
-*.eventlog
-.stack-work/
-cabal.project.local
-.HTF/
-
-### Python ###
+# Created by https://www.gitignore.io/api/python
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -126,4 +102,7 @@ venv.bak/
 # mypy
 .mypy_cache/
 
-# End of https://www.gitignore.io/api/python,haskell
+# caching
+.cache*
+
+# End of https://www.gitignore.io/api/python
