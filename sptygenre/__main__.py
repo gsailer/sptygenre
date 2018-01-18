@@ -2,7 +2,7 @@ import argparse
 import sptygenre
 from sptygenre.auth import auth
 from sptygenre.fetch import fetch
-from sptygenre.ui import draw, write
+import sptygenre.ui as ui
 from sptygenre import exceptions
 import sys
 
@@ -25,9 +25,9 @@ def main():
 		print(e.msg)
 		sys.exit(1)
 	if not args.file == None:
-		write.cloud_to_file(args.file, playlist_wordcloud)
+		ui.write.cloud_to_file(args.file, playlist_wordcloud)
 	else:
-		draw.draw_wordcloud_with_matplot(playlist_wordcloud)
+		ui.draw.draw_wordcloud_with_matplot(playlist_wordcloud)
 
 if __name__ == '__main__':
 	main()
