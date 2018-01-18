@@ -8,8 +8,12 @@ For installation make sure python is installed and install with:
 ```
 pip install sptygenre
 ```
-
-You can run
+or for python3:
 ```
-sptygenre [username  spotify playlist uri]
+pip3 install sptygenre
+```
+
+After successful installation you can run to generate a wordcloud for given playlist:
+```
+sptygenre [username]  [playlist uri]
 ```
