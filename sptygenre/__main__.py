@@ -13,6 +13,9 @@ def main():
 	parser.add_argument('-f', '--file', help='Path to write png')
 	parser.add_argument('--version', action='version', version="sptygenre {}".format(sptygenre.__version__))
 	args = parser.parse_args()
+	if not len(args.uri.split(':')) == 5:
+		print("Please provide a valid spotify uri")
+		sys.exit(1)
 	try:
 		s = auth.authorize(args.username)
 	except exceptions.TokenException as e:
