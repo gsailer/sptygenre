@@ -11,8 +11,8 @@ def authorize(username):
 	else:
 		raise exceptions.TokenException(username)
 
-# returns spotipy OAuth Object
-def get_url_token(username):
+# returns auth url
+def get_auth_url(username):
 	_client_id = ''
 	_client_secret = ''
 	_redirect_uri = ''
@@ -20,6 +20,10 @@ def get_url_token(username):
 	cache_path = ".cache-" + username
     sp_oauth = oauth2.SpotifyOAuth(_client_id, _client_secret, _redirect_uri, 
         scope=scope, cache_path=cache_path)
-    token_info = sp_oauth.get_cached_token()
-    return sp_oauth
+    return sp_oauth.get_authorize_url()
 
+# returns token for response url
+def get_token(sp_oauth, response_url):
+	code = oauth2.parse_response_code(response_url)
+	token = sp_oauth.get_access_token(code)
+	return token['access_token']
