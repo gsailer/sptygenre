@@ -18,8 +18,7 @@ def get_auth_url(username):
 	_redirect_uri = ''
 	scope = 'playlist-read-private'
 	cache_path = ".cache-" + username
-    sp_oauth = oauth2.SpotifyOAuth(_client_id, _client_secret, _redirect_uri, 
-        scope=scope, cache_path=cache_path)
+    sp_oauth = oauth2.SpotifyOAuth(_client_id, _client_secret, _redirect_uri, scope=scope, cache_path=cache_path)
     return sp_oauth.get_authorize_url()
 
 # returns token for response url
