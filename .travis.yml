@@ -1,0 +1,20 @@
+language: python
+python:
+- '2.6'
+- '2.7'
+- '3.3'
+- '3.4'
+- '3.5'
+- '3.6'
+
+before_deploy:
+  - sed -i 's/dev/'"$TRAVIS_TAG"'/g' sptygenre/__init__.py
+
+deploy:
+  provider: pypi
+  user: sublinus
+  on:
+    tags: true
+    branch: master
+  password:
+    secure: YawFzXPYfUjAcL+EDPMj6SsrqNRmlqnOl6E8RXQM+prwwVPlqFDp87hbp7i6PbY7/bDrxfOV+pFHt5HIq/1feI0DHRqnxt9LVgkcKO+6Rfs5imNXQMAl2PEuWkMILSXRBHAvflgDLIlhW42W98RcGR34j5v2HhDIE3r7oGrSGPBWi/i9L6Z84Y2fsd1ScOskzQdxOkvJcIXjEiiDeep296vjKefFzdEOcxXlJV189IAvkrX6kdlUP/iLDzjGosh7cxMhbPMwr01FZg5R4vKbeSbTYLmO0saxP13+cUW/GU6rWmCrJiNnxtS7M5d1EroblstIa4/iBOihTgdr6M0y0D6zEpCMGOGjb7K+BElLHlHDe+fsCdrwpaEeVwmRRObRxUEyUoWGgw7jfbEtsYQsaP53PvtIQYd08YxeMChZd6aT3ddNf2+BLRhI1EM1UBpKSvbQtiGTWzosXmU1ZtwDwTfzIcng2RA9Z0OfRFfkfOABs6CgY3/FTFHi1sVZDgbl/qsqNQ+DR0gnmG5XrisxoBJagfUah2bjjBSDk6bX2YjJYZxfahOZQzs057vM+6t1ndr6nVuzGFOSkDb6Ie+tGwzTEH9z502Tc0CtWq0CGM7oY/DP6L6NN0nuEimAY2Bo9KI/DWTSAMaR0vgGjL6FbTWfYFkKWYuwPgXPWOHghNY=
