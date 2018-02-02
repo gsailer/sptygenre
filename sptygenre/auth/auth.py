@@ -5,7 +5,7 @@ from sptygenre import exceptions
 
 def authorize(username):
     scope = 'playlist-read-private'
-    token = util.prompt_for_user_token(username, scope, client_id='3dab3c84034247168f7021f1f1128754', client_secret='d89c1072a0a84ae396998d08501a0b1c', redirect_uri='http://localhost:5000/callback/')
+    token = util.prompt_for_user_token(username, scope)
     if token:
         return spotipy.Spotify(auth=token)
     else:
