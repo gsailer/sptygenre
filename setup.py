@@ -22,7 +22,7 @@ setup(
         'spotipy >= 2.4.4',
         'wordcloud >= 1.3.1'
     ],
-    test_requires=['pytest'],
+    test_requires=['pytest', 'mock'],
     entry_points={
         'console_scripts': [
             'sptygenre = sptygenre.__main__:main',
