@@ -23,16 +23,14 @@ class Fetcher(object):
     def get_genres_from_playlist(self, playlist):
         ids = []
         if playlist['total'] < 100:
-            for i in range(0,len(playlist)):
+            for i in range(0, playlist['total']):
                 id = playlist["items"][i]["track"]["artists"][0]["id"]
                 ids.append(id)
-            try:
+            if self._spotipy.next(playlist):
                 playlist = self._spotipy.next(playlist)
-            except spotipy.client.SpotifyException as e:
-                raise exceptions.FetchingException(playlist, e.msg)
         else:
             while playlist['next']:
-                for i in range(0,len(playlist)):
+                for i in range(0,playlist['total']):
                     id = playlist["items"][i]["track"]["artists"][0]["id"]
                     ids.append(id)
                 playlist = self._spotipy.next(playlist)
