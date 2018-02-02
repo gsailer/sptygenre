@@ -1,5 +1,3 @@
-import os
-import sys
 from sptygenre import exceptions
 from wordcloud import WordCloud
 
@@ -10,7 +8,7 @@ class Fetcher(object):
     # fetches playlist from spotify
     def fetch_playlist(self):
         username = self._uri.split(':')[2]
-        playlist_id = self._uri.split(':')[4]   
+        playlist_id = self._uri.split(':')[4]
         playlist = self._spotipy.user_playlist(username, playlist_id)["tracks"]
         if playlist:
             return playlist
@@ -34,9 +32,8 @@ class Fetcher(object):
                     id = playlist["items"][i]["track"]["artists"][0]["id"]
                     ids.append(id)
                 playlist = self._spotipy.next(playlist)
-            
         genres = []
-        # only 50 artists max because api 
+        # only 50 artists max because api
         while ids:
             artists = self._spotipy.artists(ids[:49])
             if not artists:
