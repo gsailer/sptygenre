@@ -1,8 +1,16 @@
 language: python
+python:
+  - "2.7"
+  - "3.3"
+  - "3.4"
+  - "3.5"
+  - "3.6"
+
+install:
+  - pip install -r requirements.txt
 
 script:
-  # does not do anything yet, because no tests
-  - echo
+  - pytest
 
 before_deploy:
   - sed -i 's/dev/'"$TRAVIS_TAG"'/g' sptygenre/__init__.py
