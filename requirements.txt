@@ -1,4 +1,4 @@
-spotipy==2.4.4
+spotipy==2.22.1
 matplotlib>=2.2.3,<=3.0.2
 mock==2.0.0
 wordcloud==1.5.0
